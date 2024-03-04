@@ -1,0 +1,39 @@
+<FrameLayout
+      android:layout_width="match_parent"
+      android:layout_height="wrap_content">
+        <de.hdodenhof.circleimageview.CircleImageView
+            xmlns:app="http://schemas.android.com/apk/res-auto"
+            android:id="@+id/profile_image"
+            android:layout_width="90dp"
+            android:layout_height="90dp"
+            android:src="@drawable/circle_256"
+            app:civ_border_width="2dp"
+            app:civ_border_color="#FF000000"
+            tools:ignore="MissingClass"/>
+  </FrameLayout>
+
+
+class MainActivity : ComponentActivity() {
+   lateinit var imge : ImageView
+
+    val galleryLauncher = registerForActivityResult(ActivityResultContracts.GetContent()) {
+        val galleryUri = it
+        try{
+            imge.setImageURI(galleryUri)
+        }catch(e:Exception){
+            e.printStackTrace()
+        }
+
+    }
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setContentView(R.layout.activity_main)
+        var btn = findViewById<Button>(R.id.btn_changed)
+        imge = findViewById<ImageView>(R.id.profile_image)
+
+        btn.setOnClickListener {
+            galleryLauncher.launch("image/*")
+        }
+
+    }
+}
