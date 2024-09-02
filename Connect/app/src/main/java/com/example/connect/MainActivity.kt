@@ -20,24 +20,14 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.core.app.ActivityCompat
-<<<<<<< HEAD
 import com.example.connect.constant.GlobalConstant
 import com.example.connect.log.MyLog
-
-
-class MainActivity : ComponentActivity() {
-    private val mTag = "MainActivity"
-    private val adapter = BluetoothAdapter.getDefaultAdapter()
-    private var mListView: ListView? = null
-
-=======
-
 
 class MainActivity : ComponentActivity() {
     private val mTag = "Home"
     private val adapter = BluetoothAdapter.getDefaultAdapter()
-   private var mListView : ListView? = null
->>>>>>> f5e2dca4b0905296afd405b417f8f411acb728b8
+    private var mListView: ListView? = null
+
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -80,17 +70,15 @@ class MainActivity : ComponentActivity() {
 
     override fun onActivityResult(requestCode: Int, resultCode: Int, data: Intent?) {
         super.onActivityResult(requestCode, resultCode, data)
-        if(resultCode==RESULT_OK){
-            if(requestCode==GlobalConstant.REQUEST_ENABLE_BT){
-                MyLog.d(mTag,"Bluetooth enable allow")
-            }else{
-                MyLog.d(mTag,"Bluetooth enable deny")
+        if (resultCode == RESULT_OK) {
+            if (requestCode == GlobalConstant.REQUEST_ENABLE_BT) {
+                MyLog.d(mTag, "Bluetooth enable allow")
+            } else {
+                MyLog.d(mTag, "Bluetooth enable deny")
             }
-        }else{
-            MyLog.d(mTag,"An error occurred")
+        } else {
+            MyLog.d(mTag, "An error occurred")
         }
 
     }
-
-
 }
