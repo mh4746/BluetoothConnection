@@ -20,6 +20,7 @@ import android.widget.TextView
 import android.widget.Toast
 import androidx.activity.ComponentActivity
 import androidx.core.app.ActivityCompat
+<<<<<<< HEAD
 import com.example.connect.constant.GlobalConstant
 import com.example.connect.log.MyLog
 
@@ -29,6 +30,14 @@ class MainActivity : ComponentActivity() {
     private val adapter = BluetoothAdapter.getDefaultAdapter()
     private var mListView: ListView? = null
 
+=======
+
+
+class MainActivity : ComponentActivity() {
+    private val mTag = "Home"
+    private val adapter = BluetoothAdapter.getDefaultAdapter()
+   private var mListView : ListView? = null
+>>>>>>> f5e2dca4b0905296afd405b417f8f411acb728b8
     @SuppressLint("MissingInflatedId")
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
